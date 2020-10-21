@@ -1,0 +1,70 @@
+{
+	//页面路由
+	"pages": [{
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "消息管理",
+			"enablePullDownRefresh": true
+		}
+	}, {
+		"path": "pages/proposal/index",
+		"style": {
+			"navigationBarTitleText": "提案管理"
+		}
+	}, {
+		"path": "pages/meeting/index",
+		"style": {
+			"navigationBarTitleText": "会议管理"
+		}
+	}, {
+		"path": "pages/statistical/index",
+		"style": {
+			"navigationBarTitleText": "统计分析"
+		}
+	}, {
+		"path": "pages/index/detail",
+		"style": {
+			"navigationBarTitleText": "会议通知"
+		}
+	}, {
+		"path": "pages/proposal/solicitation",
+		"style": {
+			"navigationBarTitleText": "提案征集"
+		}
+	}],
+	//底部导航
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007BFF",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/image/message_icon.png",
+			"selectedIconPath": "static/image/message_click.png",
+			"text": "消息中心"
+		}, {
+			"pagePath": "pages/proposal/index",
+			"iconPath": "static/image/tian_icon.png",
+			"selectedIconPath": "static/image/tian_click.png",
+			"text": "提案管理"
+		}, {
+			"pagePath": "pages/meeting/index",
+			"iconPath": "static/image/meeting_icon.png",
+			"selectedIconPath": "static/image/meeting_click.png",
+			"text": "会议管理"
+		}, {
+			"pagePath": "pages/statistical/index",
+			"iconPath": "static/image/statistical_icon.png",
+			"selectedIconPath": "static/image/statistical_click.png",
+			"text": "统计分析"
+		}]
+	},
+	//全局样式
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF"
+	}
+}
