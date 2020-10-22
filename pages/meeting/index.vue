@@ -1,16 +1,22 @@
 <template>
 	<view class="container">
-		<uni-card title="uni-ui" note="Tips">
-			<template>
-				<view>
-					<text class="intro">本项目为包含uni-ui全部组件的项目，在pages.json内使用easycom通过正则匹配自动引入组件。以本页面为例，uni-card为自动导入组件，无需在页面内import即可使用，效果等同于页面内import。</text>
+		<view class="list">
+			<view class="item flex" v-for="(item,index) in dataList" :key="index" @click="clickFunc(item)">
+				<img :src="item.img"/>
+				<view class="full">
+					<div>{{item.name}}</div>
+					<p>{{item.en}}</p>
 				</view>
-				<view>
-					<text class="intro">详见：</text>
-					<uni-link :href="href" :text="href"></uni-link>
-				</view>
-			</template>
-		</uni-card>
+			</view>
+		</view>
+		
+		<uni-popup ref="popup" type="center" :maskClick="false">
+			<div class="success">
+				<img :src="require('../../static/image/tc_img.png')"/>
+				<span>恭喜您签到成功</span>
+			</div>
+			<div class="close" @click="close"></div>
+		</uni-popup>
 	</view>
 </template>
 
@@ -18,18 +24,97 @@
 	export default {
 		data() {
 			return {
-				href: 'https://uniapp.dcloud.io/collocation/pages?id=easycom'
+				dataList:[{
+					name:'会议发布',
+					en:'Conference release',
+					img: require('../../static/image/meeting_fabu_icon.png'),
+					path: 'release'
+				}, {
+					name:'坐席管理',
+					en:'Agent management',
+					img: require('../../static/image/meeting_guanli_icon.png'),
+					path: ''
+				}, {
+					name:'会议签到',
+					en:'Conference registration',
+					img: require('../../static/image/meeting_qiandao_icon.png'),
+					path: ''
+				}, {
+					name:'会议记录',
+					en:'Conference records',
+					img: require('../../static/image/meeting_jilu_icon.png'),
+					path: 'record'
+				}]
 			}
 		},
 		methods: {
-
+			clickFunc(item){
+				if(item.path){
+					this.$tools.goToPage(item.path);
+				}else{
+					//签到
+					this.$refs.popup.open()
+				}
+			},
+			close(){
+				this.$refs.popup.close()
+			}
 		}
 	}
 </script>
 
-<style>
-	.intro {
-		font-size: 14px;
-		line-height: 24px;
+<style scoped lang="scss">
+	.container{
+		.list{
+			padding:0 16px;
+			.item{
+				padding: 10px;
+				margin-bottom: 14px;
+				border-radius: 40px;
+				background-color: #F8FBFF;
+				img{
+					display: block;
+					width:60px;
+					height:60px;
+				}
+				view{
+					margin-left:20px;
+					line-height:20px;
+					padding:10px 0;
+					div{
+						font-weight: bold;
+						font-size:15px;
+					}
+					p{
+						font-size: 14px;
+						color:#ABB6C4;
+					}
+				}
+			}
+		}
+		
+		.success{
+			background-color: #FFFFFF;
+			border-radius: 10px;
+			padding:20px 30px;
+			img{
+				display: block;
+				width: 50vw;
+			}
+			span{
+				display: block;
+				font-size:15px;
+				font-weight: bold;
+				text-align: center;
+				line-height: 2;
+			}
+		}
+		.close{
+			width: 22px;
+			height: 50px;
+			margin:0 auto;
+			background: url(../../static/image/tc_close_down.png) no-repeat top center;
+			background-size: 22px;
+		}
 	}
 </style>

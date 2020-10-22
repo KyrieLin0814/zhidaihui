@@ -79,7 +79,7 @@ ul {
 	text-overflow: ellipsis;
 	/*要显示的行数*/
 	-webkit-line-clamp: 2;
-	/* autoprefixer: off */
+	/*! autoprefixer: ignore next */
 	-webkit-box-orient: vertical;
 	/* autoprefixer: on */
 }
@@ -297,4 +297,9 @@ uni-modal .uni-modal__ft {
 	width:100%;
 	font-size:14px;
 	line-height:40px;
+}
+
+/* 弹窗 */
+.uni-popup{
+	z-index: 999!important;
 }

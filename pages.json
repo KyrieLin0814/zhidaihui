@@ -70,6 +70,16 @@
 		"style": {
 			"navigationBarTitleText": "回复提案"
 		}
+	}, {
+		"path": "pages/meeting/release",
+		"style": {
+			"navigationBarTitleText": "会议发布"
+		}
+	}, {
+		"path": "pages/meeting/record",
+		"style": {
+			"navigationBarTitleText": "会议记录"
+		}
 	}],
 	//底部导航
 	"tabBar": {
