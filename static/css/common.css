@@ -42,6 +42,15 @@ ul {
 	float: left;
 }
 
+.container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: auto;
+}
+
 /* 清除浮动 */
 .clearfix {
 	clear: both;
@@ -95,13 +104,42 @@ ul {
 
 /* 底部按钮布局 */
 .bottomBtns {
-	margin: 0 -8px;
+}
+.bottomBtns.fixed{
+	border-top: 1px solid #EDEDED;
 }
 
 .bottomBtns uni-button {
-	margin: 8px;
+	margin: 8px 16px;
 }
 
+.tabBox {
+	margin: 0 auto;
+	width: 222px;
+	padding: 4px;
+	border-radius: 5px;
+	background-color: #f7f7f7;
+}
+
+.tabBox .tab {
+	font-size: 14px;
+	line-height: 32px;
+	color: #888888;
+	text-align: center;
+	transition: all 0.3s;
+}
+
+.tabBox .tab.active-1 {
+	color: #FFFFFF;
+	background: url(../../static/image/message_tab_left_click.png) no-repeat;
+	background-size: contain;
+}
+
+.tabBox .tab.active-2 {
+	color: #FFFFFF;
+	background: url(../../static/image/message_tab_right_click.png) no-repeat;
+	background-size: contain;
+}
 
 
 /* 按钮样式 */
@@ -135,35 +173,128 @@ uni-input {
 	font-size: 14px;
 	height: 40px;
 	padding: 0 8px;
-	border:1px solid #E5E5E5;
+	border: 1px solid #E5E5E5;
 	border-radius: 5px;
 }
-uni-input.date{
-	position: relative;
-	padding: 0 30px;
-	background: url(../image/date_icon.png) no-repeat 10px center;
+
+uni-input.formInput {
+	padding-left: 40px;
+}
+
+uni-input.title {
+	background: url(../image/tianname_icon.png) no-repeat 14px center;
 	background-size: 14px;
 }
-uni-input.date:after{
+
+uni-input.name {
+	background: url(../image/name_icon.png) no-repeat 14px center;
+	background-size: 14px;
+}
+
+uni-input.phone {
+	background: url(../image/tianname_icon.png) no-repeat 14px center;
+	background-size: 14px;
+}
+
+uni-input.depart {
+	background: url(../image/bumen_icon.png) no-repeat 14px center;
+	background-size: 14px;
+}
+
+uni-input.chaosong {
+	background: url(../image/chaosong_icon.png) no-repeat 14px center;
+	background-size: 14px;
+}
+
+uni-input.type {
+	background: url(../image/type_icon.png) no-repeat 14px center;
+	background-size: 14px;
+}
+
+uni-input.date {
+	background: url(../image/date_icon.png) no-repeat 14px center;
+	background-size: 14px;
+}
+
+uni-input.downIcon{
+	position: relative;
+	padding: 0 30px 0 40px;
+}
+
+uni-input.downIcon:after {
 	content: "";
 	display: block;
-	width:20px;
-	height:20px;
+	width: 20px;
+	height: 20px;
 	background: url(../image/sanjiao_jump_icon.png) no-repeat center;
 	background-size: 12px;
 	position: absolute;
-	right:8px;
-	top:50%;
-	margin-top:-10px;
+	right: 10px;
+	top: 50%;
+	margin-top: -10px;
 }
 
 /* 提示框 */
-uni-toast .uni-toast__content{
-	font-size:15px;
+uni-toast .uni-toast__content {
+	font-size: 15px;
 }
 
 /* 确认框 */
 uni-modal .uni-modal__title,
-uni-modal .uni-modal__ft{
-	font-size:15px;
+uni-modal .uni-modal__ft {
+	font-size: 15px;
+}
+
+/* picker */
+.uni-picker-container .uni-picker-action {
+	font-size: 16px;
+	color: #007BFF;
+}
+
+
+/* 单选 */
+.radioBox .radioItem{
+	width:calc(50% - 14px);
+	display: inline-block;
+	border:1px solid #EDEDED;
+	background-color: #ffffff;
+	border-radius: 5px;
+	margin: 6px;
+	position: relative;
+	overflow: hidden;
+}
+.radioBox .radioItem>uni-view{
+	display: inline-block;
+}
+.radioBox .radioItem>uni-view{
+	display: inline-block;
+}
+.radioBox .radioItem>uni-view:first-child{
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 0;
+}
+.radioBox .radioItem>uni-view:first-child .uni-radio-wrapper .uni-radio-input{
+	margin: 0;
+	width: 14px;
+	height:14px;
+	border-radius: 3px;
+	display: none;
+}
+.radioBox .radioItem>uni-view:first-child .uni-radio-wrapper .uni-radio-input:before{
+	font-size: 12px;
+}
+.radioBox .radioItem.checked>uni-view:first-child .uni-radio-wrapper .uni-radio-input{
+	display: block;
+}
+.radioBox .radioItem.checked{
+	border:1px solid #007BFF;
+	background-color: #EFF5FF;
+}
+.radioBox .radioItem>uni-view:last-child{
+	text-align: center;
+	width:100%;
+	font-size:14px;
+	line-height:40px;
 }

@@ -3,8 +3,7 @@
 	"pages": [{
 		"path": "pages/index/index",
 		"style": {
-			"navigationBarTitleText": "消息管理",
-			"enablePullDownRefresh": true
+			"navigationBarTitleText": "消息管理"
 		}
 	}, {
 		"path": "pages/proposal/index",
@@ -30,6 +29,46 @@
 		"path": "pages/proposal/solicitation",
 		"style": {
 			"navigationBarTitleText": "提案征集"
+		}
+	}, {
+		"path": "pages/proposal/initiate",
+		"style": {
+			"navigationBarTitleText": "发起提案"
+		}
+	}, {
+		"path": "pages/proposal/detail",
+		"style": {
+			"navigationBarTitleText": "新建提案"
+		}
+	}, {
+		"path": "pages/proposal/examine",
+		"style": {
+			"navigationBarTitleText": "提案审核"
+		}
+	}, {
+		"path": "pages/proposal/examineDetail",
+		"style": {
+			"navigationBarTitleText": "审核提案"
+		}
+	}, {
+		"path": "pages/proposal/handle",
+		"style": {
+			"navigationBarTitleText": "提案处理"
+		}
+	}, {
+		"path": "pages/proposal/handleDetail",
+		"style": {
+			"navigationBarTitleText": "处理提案"
+		}
+	}, {
+		"path": "pages/proposal/reply",
+		"style": {
+			"navigationBarTitleText": "提案回复"
+		}
+	}, {
+		"path": "pages/proposal/replyDetail",
+		"style": {
+			"navigationBarTitleText": "回复提案"
 		}
 	}],
 	//底部导航

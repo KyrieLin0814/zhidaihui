@@ -14,8 +14,23 @@ function redirectTo(path) {
 	});
 }
 
+//路由后退
+function backRoute(num,time){
+	if(time){
+		setTimeout(()=>{
+			uni.navigateBack({
+			    delta: num || 1
+			});
+		},time)
+	}else{
+		uni.navigateBack({
+		    delta: num || 1
+		});
+	}
+}
 
 export default {
 	goToPage,
 	redirectTo,
+	backRoute
 }

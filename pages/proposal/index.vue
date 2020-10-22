@@ -21,16 +21,20 @@
 					path: 'solicitation'
 				}, {
 					name:'发起提案',
-					img: require('../../static/image/tian_faqi_icon.png')
+					img: require('../../static/image/tian_faqi_icon.png'),
+					path: 'initiate'
 				}, {
 					name:'提案审核',
-					img: require('../../static/image/tian_shenhe_icon.png')
+					img: require('../../static/image/tian_shenhe_icon.png'),
+					path: 'examine'
 				}, {
 					name:'提案处理',
-					img: require('../../static/image/tian_chuli_icon.png')
+					img: require('../../static/image/tian_chuli_icon.png'),
+					path: 'handle'
 				}, {
 					name:'提案回复',
-					img: require('../../static/image/tian_huifu_icon.png')
+					img: require('../../static/image/tian_huifu_icon.png'),
+					path: 'reply'
 				}]
 			}
 		},

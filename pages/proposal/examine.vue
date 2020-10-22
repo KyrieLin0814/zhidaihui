@@ -1,34 +1,44 @@
 <template>
 	<view class="container">
 		<view class="tabBox flex">
-			<view class="tab full" :class="{'active-1': type == 1}" @click="changeTab(1)">未读消息</view>
-			<view class="tab full" :class="{'active-2': type == 2}" @click="changeTab(2)">历史消息</view>
+			<view class="tab full" :class="{'active-1': type == 1}" @click="changeTab(1)">未审核</view>
+			<view class="tab full" :class="{'active-2': type == 2}" @click="changeTab(2)">已审核</view>
 		</view>
-		<load-refresh ref="loadRefresh" :isRefresh="true" :refreshTime="800" :heightReduce="40" :backgroundCover="'#ffffff'"
-		 :pageNo="currPage" :totalPageNo="totalPage" @loadMore="loadMore" @refresh="refresh">
-			<view slot="content-list">
-				<view class="msgList">
-					<view class="con" v-for="(item,index) in messageList" :key="index" @click="$tools.goToPage('detail')">
-						<div class="til text-1">
-							<span :class="[{'meeting': item.type==1},{'tian': item.type==2}]"></span>
-							{{item.title}}
+
+		<view class="list">
+			<load-refresh ref="loadRefresh" :isRefresh="true" :refreshTime="800" :heightReduce="40" :backgroundCover="'#ffffff'"
+			 :pageNo="currPage" :totalPageNo="totalPage" @loadMore="loadMore" @refresh="refresh">
+				<view slot="content-list">
+					<div class="con" v-for="(item,index) in dataList" :key="index" @click="$tools.goToPage('examineDetail?done=' + (type==1?'0':'1'))">
+						<div class="content">
+							<view class="topBox clearfix">
+								<div class="til text-1">
+									{{item.title}}
+								</div>
+								<div class="tip">{{type==1? '待审核' : '已审核'}}</div>
+							</view>
+							
+							<div class="msg text-1">
+								{{item.text}}
+							</div>
 						</div>
-						<div class="msg text-1">
-							{{item.text}}
-						</div>
-					</view>
+					</div>
 				</view>
-			</view>
-		</load-refresh>
+			</load-refresh>
+		</view>
 	</view>
 </template>
 
 <script>
+	import loadRefresh from '@/components/load-refresh/load-refresh.vue'
 	export default {
+		components: {
+			loadRefresh
+		},
 		data() {
 			return {
-				type: 1, //1未读消息  2历史消息
-				messageList: [],
+				type: 1,
+				dataList: [],
 				currPage: 1, // 当前页码
 				totalPage: 1, // 总页数
 			}
@@ -50,40 +60,40 @@
 			},
 			getList() {
 				setTimeout(()=>{
-					this.messageList = [...this.messageList,...[{
-						type: 1,
+					this.dataList = [...this.dataList,...[{
+						id: 1,
 						title: '会议通知标题',
 						text: '国家卫生健康委员会提醒，酵米面中毒的主要原因生产'
 					}, {
-						type: 2,
+						id: 2,
 						title: '提案通知标题',
 						text: '深圳航空ZH9247航班在四川攀枝花机场'
 					}, {
-						type: 2,
+						id: 2,
 						title: '提案通知标题',
 						text: '小孩子的情绪转变有多快？看看这个被老师训话小男孩'
 					}, {
-						type: 1,
+						id: 1,
 						title: '会议通知标题',
 						text: '国家卫生健康委员会提醒，酵米面中毒的主要原因生产'
 					}, {
-						type: 2,
+						id: 2,
 						title: '提案通知标题',
 						text: '深圳航空ZH9247航班在四川攀枝花机场'
 					}, {
-						type: 2,
+						id: 2,
 						title: '提案通知标题',
 						text: '小孩子的情绪转变有多快？看看这个被老师训话小男孩'
 					}, {
-						type: 1,
+						id: 1,
 						title: '会议通知标题',
 						text: '国家卫生健康委员会提醒，酵米面中毒的主要原因生产'
 					}, {
-						type: 2,
+						id: 2,
 						title: '提案通知标题',
 						text: '深圳航空ZH9247航班在四川攀枝花机场'
 					}, {
-						type: 2,
+						id: 2,
 						title: '提案通知标题',
 						text: '小孩子的情绪转变有多快？看看这个被老师训话小男孩'
 					}, ]]
@@ -93,55 +103,63 @@
 					
 					this.$refs.loadRefresh.loadOver();
 				},1000)
-			}
+			},
 		},
 		watch: {
-			type() {
-				this.page = 1;
-				this.getList();
-			}
+
 		}
 	}
 </script>
 
 <style scoped lang="scss">
 	.container {
-		.msgList {
-			padding: 0 16px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 0 16px;
+
+		.list {
+			margin: 0 -16px;
+			// overflow-y: auto;
+			// height: calc(100% - 98px);
+
 			.con {
 				border-bottom: 1px solid $uni-bg-color-grey;
-				padding: 12px 6px;
 				line-height: 1.8;
+				margin: 0 16px;
 
-				.til {
-					font-size: 15px;
-					font-weight: bold;
-
-					span {
-						width: 20px;
-						height: 20px;
-						display: inline-block;
-						vertical-align: sub;
-						margin-right: 5px;
-
-						&.tian {
-							background: url(../../static/image/message_tian_icon.png) no-repeat;
-							background-size: contain;
+				.content {
+					padding: 12px 0;
+					.topBox{
+						.til {
+							float: left;
+							font-size: 15px;
+							font-weight: bold;
+							width: calc(100% - 50px);
 						}
-
-						&.meeting {
-							background: url(../../static/image/message_huiyi_icon.png) no-repeat;
-							background-size: contain;
+						.tip {
+							float: right;
+							width: 50px;
+							font-size: 12px;
+							margin-top: 3px;
+							line-height: 20px;
+							border-radius: 3px;
+							text-align: center;
+							background-color: #FFF8F2;
+							color: #FF9024;
 						}
 					}
-				}
 
-				.msg {
-					font-size: 14px;
-					color: $uni-text-color-grey;
-					padding-left: 25px;
+					.msg {
+						font-size: 14px;
+						margin-right: 15px;
+						color: $uni-text-color-grey;
+					}
 				}
 			}
 		}
+
 	}
 </style>

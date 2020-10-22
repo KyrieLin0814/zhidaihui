@@ -1,18 +1,18 @@
 <template>
 	<view class="container">
-		<view class="time">
+		<view class="item time">
 			<p>会议时间</p>
 			<div class="icon">{{data.time}}</div>
 		</view>
-		<view class="location">
+		<view class="item location">
 			<p>会议地点</p>
 			<div class="icon">{{data.location}}</div>
 		</view>
-		<view class="content">
+		<view class="item content">
 			<p>通知内容</p>
 			<div>{{data.text}}</div>
 		</view>
-		<view class="reason">
+		<view class="item reason">
 			<p>请假原因</p>
 			<view class="uni-textarea">
 				<textarea placeholder='请输入请假原因' placeholder-style="color:#D5D5D5" v-model="reason" />
@@ -53,7 +53,7 @@
 			qingjiaFunc(){
 				uni.showModal({
 					title: '提示',
-					content: '是否确认请假',
+					content: '是否确认请假?',
 					success: function (res) {
 						if (res.confirm) {
 							
@@ -66,7 +66,7 @@
 			canhuiFunc(){
 				uni.showModal({
 					title: '提示',
-					content: '是否确认参会',
+					content: '是否确认参会?',
 					success: function (res) {
 						if (res.confirm) {
 							
@@ -85,9 +85,8 @@
 
 <style scoped lang="scss">
 	.container {
-		padding:0 16px;
-		>view{
-			padding:10px 0;
+		.item {
+			padding:10px 16px;
 			line-height:2.2;
 			>p{
 				font-weight: bold;
