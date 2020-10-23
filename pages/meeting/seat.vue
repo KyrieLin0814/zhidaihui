@@ -5,6 +5,28 @@
 				<view class="form seatImg">
 					<p>会议坐席</p>
 					<img :src="data.img">
+					<!-- <movable-area class="seatBox">
+						<movable-view class="seatCon" :x="0" :y="0" direction="all" :scale='true'>
+							<p>主席台</p>
+							<div class="zxtCon">
+								<div class="clo" v-for="(item,index) in seatList1" :key="index">
+									<div class="seat seatzxt" v-for="(i,idx) in item" :key="idx" 
+										:class="{'disabled': !i.status }">
+											{{index+1}}行-{{i.ColumnNum}}号
+										</div>
+								</div>
+							</div>
+							<p>观众席</p>
+							<div class="gzxCon">
+								<div class="clo" v-for="(item,index) in seatList2" :key="index">
+									<div class="seat seatgzx" v-for="(i,idx) in item" :key="idx" 
+										:class="{'disabled': !i.status }">
+											{{index+1}}行-{{i.ColumnNum}}号
+										</div>
+								</div>
+							</div>
+						</movable-view>
+					</movable-area> -->
 				</view>
 				<view class="form location">
 					<p>会议地点</p>
@@ -52,6 +74,59 @@
 				nameList: ['张三', '李四', '王五'],
 				departIndex:0,
 				departList: ['部门1', '部门2', '部门3'],
+				seatList1:[[{
+					Status:0,
+					ColumnNum:4
+				},{
+					Status:0,
+					ColumnNum:3
+				},{
+					Status:1,
+					ColumnNum:2
+				},{
+					Status:1,
+					ColumnNum:1
+				}],[{
+					Status:0,
+					ColumnNum:3
+				},{
+					Status:1,
+					ColumnNum:2
+				},{
+					Status:0,
+					ColumnNum:1
+				}]],
+				seatList2:[[{
+					Status:0,
+					ColumnNum:5
+				},{
+					Status:0,
+					ColumnNum:4
+				},{
+					Status:0,
+					ColumnNum:3
+				},{
+					Status:0,
+					ColumnNum:2
+				},{
+					Status:1,
+					ColumnNum:1
+				}],[{
+					Status:0,
+					ColumnNum:5
+				},{
+					Status:1,
+					ColumnNum:4
+				},{
+					Status:1,
+					ColumnNum:3
+				},{
+					Status:1,
+					ColumnNum:2
+				},{
+					Status:1,
+					ColumnNum:1
+				}]]
 			}
 		},
 		onLoad() {
@@ -117,6 +192,37 @@
 				padding-bottom: 16px;
 			}
 			.seatImg{
+				.seatBox{
+					width: 100%;
+					height: 50vw;
+					overflow: hidden;
+					.seatCon{
+						width: auto;
+						height: auto;
+						p{
+							text-align: center;
+						}
+						.zxtCon,.gzxCon{
+							.clo{
+								text-align: center;
+								.seat{
+									display: inline-block;
+									margin: 5px;
+									color: #FFFFFF;
+									font-size: 12px;
+									padding: 5px;
+									
+									&.seatzxt{
+										background-color: #DD524D;
+									}
+									&.seatgzx{
+										background-color: #0077FF;
+									}
+								}
+							}
+						}
+					}
+				}
 				img{
 					margin-top: 4px;
 					border-radius: 5px;
