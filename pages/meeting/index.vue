@@ -33,7 +33,7 @@
 					name:'坐席管理',
 					en:'Agent management',
 					img: require('../../static/image/meeting_guanli_icon.png'),
-					path: ''
+					path: 'seat'
 				}, {
 					name:'会议签到',
 					en:'Conference registration',

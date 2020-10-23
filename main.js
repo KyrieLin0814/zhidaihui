@@ -5,11 +5,11 @@ import http from '@/utils/http.js';
 import global from '@/utils/global.js'
 import './static/css/common.css'
 
-Vue.config.productionTip = false
-
 Vue.prototype.$tools = tools
 Vue.prototype.$http = http.httpRequest
 Vue.prototype.global = global
+
+Vue.config.productionTip = false
 
 App.mpType = 'app'
 

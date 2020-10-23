@@ -18,7 +18,8 @@
 	}, {
 		"path": "pages/statistical/index",
 		"style": {
-			"navigationBarTitleText": "统计分析"
+			"navigationBarTitleText": "统计分析",
+			"navigationStyle": "custom"
 		}
 	}, {
 		"path": "pages/index/detail",
@@ -76,9 +77,24 @@
 			"navigationBarTitleText": "会议发布"
 		}
 	}, {
+		"path": "pages/meeting/seat",
+		"style": {
+			"navigationBarTitleText": "坐席管理"
+		}
+	}, {
 		"path": "pages/meeting/record",
 		"style": {
 			"navigationBarTitleText": "会议记录"
+		}
+	}, {
+		"path": "pages/statistical/preview",
+		"style": {
+			"navigationBarTitleText": "提案预览"
+		}
+	}, {
+		"path": "pages/statistical/detail",
+		"style": {
+			"navigationBarTitleText": "提案详情"
 		}
 	}],
 	//底部导航
