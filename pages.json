@@ -13,7 +13,16 @@
 	}, {
 		"path": "pages/meeting/index",
 		"style": {
-			"navigationBarTitleText": "会议管理"
+			"navigationBarTitleText": "会议管理",
+			"app-plus": {
+				"titleNView": {
+					"buttons": [{
+						"text": "\ue612",
+						"fontSrc": "/static/uni.ttf",
+						"fontSize": "22px"
+					}]
+				}
+			}
 		}
 	}, {
 		"path": "pages/statistical/index",

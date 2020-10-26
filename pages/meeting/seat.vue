@@ -4,10 +4,10 @@
 			<view class="scroll">
 				<view class="form seatImg">
 					<p>会议坐席</p>
-					<img :src="data.img">
-					<!-- <movable-area class="seatBox">
+					<movable-area class="seatBox">
 						<movable-view class="seatCon" :x="0" :y="0" direction="all" :scale='true'>
-							<p>主席台</p>
+							<img :src="data.img">
+							<!-- <p>主席台</p>
 							<div class="zxtCon">
 								<div class="clo" v-for="(item,index) in seatList1" :key="index">
 									<div class="seat seatzxt" v-for="(i,idx) in item" :key="idx" 
@@ -24,9 +24,9 @@
 											{{index+1}}行-{{i.ColumnNum}}号
 										</div>
 								</div>
-							</div>
+							</div> -->
 						</movable-view>
-					</movable-area> -->
+					</movable-area>
 				</view>
 				<view class="form location">
 					<p>会议地点</p>
@@ -194,7 +194,7 @@
 			.seatImg{
 				.seatBox{
 					width: 100%;
-					height: 50vw;
+					height: 60vh;
 					overflow: hidden;
 					.seatCon{
 						width: auto;
@@ -228,7 +228,7 @@
 					border-radius: 5px;
 					display: block;
 					width: 100%;
-					box-shadow: 0 0 8px 0 rgba(0,0,0,0.1);
+					// box-shadow: 0 0 8px 0 rgba(0,0,0,0.1);
 				}
 			}
 			.form{

@@ -69,7 +69,7 @@
 					label: '旷会人员',
 					count: 1
 				}],
-				showChart:false,
+				showChart: true,
 				option: {},
 			}
 		},
@@ -97,7 +97,7 @@
 			},
 			setOption() {
 				this.showChart = false;
-				setTimeout(()=>{
+				setTimeout(() => {
 					this.showChart = true;
 					if (this.type == 1) {
 						this.setOption1(100, 64, 30);
@@ -109,11 +109,11 @@
 					} else {
 						this.setOption2(
 							['已经落实', '正在落实', '暂缓落实', '未能通过'],
-							[80,45, 60, 19]
+							[80, 45, 60, 19]
 						);
 						this.option.dataZoom.show = false;
 					}
-				},100)
+				}, 100)
 			},
 			setOption1(total, yes, no) {
 				let title = '提案总项目: ' + total
@@ -448,7 +448,7 @@
 
 			.echartCon {
 				height: 60vw;
-				width:100vw;
+				width: 100vw;
 				margin-left: -32px;
 			}
 

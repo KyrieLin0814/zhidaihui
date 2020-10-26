@@ -49,7 +49,7 @@
 			} else {
 				// 动态引入类库
 				const script = document.createElement('script')
-				script.src = './static/js/echarts.min.js'
+				script.src = '/static/js/echarts.min.js'
 				script.onload = this.init
 				document.head.appendChild(script)
 			}
